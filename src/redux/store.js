@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import {
-  // persistStore,
+  persistStore,
   // persistReducer,
   FLUSH,
   REHYDRATE,
@@ -11,7 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import { contactsReducer } from "./contacts";
-// import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage";
 // import { combineReducers } from "redux";
 // import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -31,7 +31,6 @@ const store = configureStore({
   middleware,
   devTools: process.env.NODE_ENV === "development",
 });
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-// export default { store, persistor };
-export default store;
+export default { store, persistor };

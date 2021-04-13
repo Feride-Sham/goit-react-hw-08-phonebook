@@ -1,9 +1,11 @@
 import React, { Component, Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
-// import ContactForm from "./components/ContactForm";
-// import Filter from "./components/Filter";
-// import ContactList from "./components/ContactList";
+// import HomeView from "./views/HomeView";
+// import ContactsView from "./views/ContactsView";
+// import LoginView from "./views/LoginView";
+// import RegistrationView from "./views/RegistrationView";
 import routes from "./routes";
+import AppBar from "./components/AppBar/AppBar";
 import "./App.css";
 
 const HomeView = lazy(() =>
@@ -26,6 +28,7 @@ class App extends Component {
     return (
       <>
         <div className="App">
+          <AppBar />
           <Suspense fallback={<h1>Load..</h1>}>
             <Switch>
               <Route exact path={routes.home} component={HomeView} />

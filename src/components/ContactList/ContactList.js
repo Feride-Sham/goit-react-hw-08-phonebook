@@ -17,7 +17,7 @@ class ContactList extends Component {
     const { contactList, onDeleteContact, isLaodingContacts } = this.props;
     return (
       <>
-        {isLaodingContacts && <h1>Загружаем..</h1>}
+        {isLaodingContacts && <h1>Loading..</h1>}
         <ul>
           {contactList.map(({ id, name, number }) => (
             <li className={s.item} key={id}>

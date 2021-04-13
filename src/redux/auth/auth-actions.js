@@ -3,7 +3,7 @@ import { createAction } from "@reduxjs/toolkit";
 // регистрация
 export const registrationRequest = createAction("contacts/registrationRequest");
 export const registrationSuccess = createAction("contacts/registrationSuccess");
-export const registrationError = createAction("contacts/registrationError");
+export const registrationSuccess = createAction("contacts/registrationError");
 
 // ввести логин
 export const loginRequest = createAction("contacts/loginRequest");

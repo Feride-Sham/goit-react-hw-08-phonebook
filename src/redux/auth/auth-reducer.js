@@ -20,12 +20,20 @@ const initialUserState = {
   email: null,
 };
 
-const user = createReducer(initialUserState, {});
-const token = createReducer(null, {});
-const error = createReducer(null, {});
+// из response (операция register) приходит объект со свойствами
+// user(объект:email,name) и token(строка)
+const user = createReducer(initialUserState, {
+  [registrationSuccess]: (_, { payload }) => payload.user,
+});
+const token = createReducer(null, {
+  [registrationSuccess]: (_, { payload }) => payload.token,
+});
+const error = createReducer(null, {
+  [registrationError]: (_, { payload }) => payload,
+});
 
-export default {
+export default combineReducers({
   user,
   token,
   error,
-};
+});

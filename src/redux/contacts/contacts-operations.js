@@ -41,7 +41,7 @@ const addContact = ({ name, number }) => async (dispatch) => {
     const { data } = await axios.post("/contacts", contact);
     dispatch(addContactSuccess(data));
   } catch (error) {
-    dispatch(addContactError(error));
+    dispatch(addContactError(error.message));
   }
 
   // axios

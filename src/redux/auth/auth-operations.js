@@ -29,7 +29,7 @@ const register = (credentials) => async (dispatch) => {
 
   try {
     const response = await axios.post("/users/signup", credentials);
-
+    console.log(response);
     dispatch(registrationSuccess(response.data));
   } catch (error) {
     dispatch(registrationError(error));

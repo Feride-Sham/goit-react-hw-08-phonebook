@@ -31,7 +31,8 @@ const register = (credentials) => async (dispatch) => {
 
   try {
     const response = await axios.post("/users/signup", credentials);
-    console.log(response);
+
+    token.set(response.data.token);
     dispatch(registrationSuccess(response.data));
   } catch (error) {
     dispatch(registrationError(error));
@@ -45,14 +46,27 @@ const login = (credentials) => async (dispatch) => {
 
   try {
     const response = await axios.post("/users/login", credentials);
-    console.log(response);
+    token.set(response.data.token);
     dispatch(loginSuccess(response.data));
   } catch (error) {
     dispatch(loginError(error));
   }
 };
 
-const logout = (credentials) => (dispatch) => {};
+// POST ​/users​/logout
+// Разлогинить пользователя
+const logout = () => async (dispatch) => {
+  dispatch(logoutRequest());
+
+  try {
+    await axios.post("/users/logout");
+
+    token.unset();
+    dispatch(logoutSuccess());
+  } catch (error) {
+    dispatch(logoutError(error));
+  }
+};
 
 const getCurrentUser = (credentials) => (dispatch) => {};
 

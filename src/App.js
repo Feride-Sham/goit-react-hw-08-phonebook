@@ -1,11 +1,10 @@
 import React, { Component, Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
-// import HomeView from "./views/HomeView";
-// import ContactsView from "./views/ContactsView";
-// import LoginView from "./views/LoginView";
-// import RegistrationView from "./views/RegistrationView";
+import { connect } from "react-redux";
 import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
+import { authOperations } from "./redux/auth";
+
 import "./App.css";
 
 const HomeView = lazy(() =>
@@ -24,6 +23,10 @@ const RegistrationView = lazy(() =>
 );
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
+
   render() {
     return (
       <>
@@ -43,16 +46,8 @@ class App extends Component {
   }
 }
 
-// const App = () => {
-//   return (
-//     <div className="App">
-//       <h1>Phonebook</h1>
-//       <ContactForm />
-//       <h2>Contacts</h2>
-//       <Filter />
-//       <ContactList />
-//     </div>
-//   );
-// };
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
+};
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);

@@ -69,6 +69,29 @@ const logout = () => async (dispatch) => {
   }
 };
 
-const getCurrentUser = () => (dispatch) => {};
+// GET  ​/users​/current
+// Получить информацию о текущем пользователе
+const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  // проверяем, если токена нет, то выходим
+  if (!persistedToken) {
+    return;
+  }
+  // если токен есть, то добавляем его в header
+  token.set(persistedToken);
+
+  dispatch(getCurrentUserRequest());
+
+  try {
+    const response = await axios.get("/users/current");
+
+    dispatch(getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(getCurrentUserError(error.message));
+  }
+};
 
 export default { register, login, logout, getCurrentUser };

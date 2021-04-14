@@ -26,16 +26,22 @@ const user = createReducer(initialUserState, {
   [registrationSuccess]: (_, { payload }) => payload.user,
   [loginSuccess]: (_, { payload }) => payload.user,
   [logoutSuccess]: () => initialUserState,
+  [getCurrentUserSuccess]: (_, { payload }) => payload,
 });
+
 const token = createReducer(null, {
   [registrationSuccess]: (_, { payload }) => payload.token,
   [loginSuccess]: (_, { payload }) => payload.token,
   [logoutSuccess]: () => null,
 });
+
+const setError = (_, { payload }) => payload;
+
 const error = createReducer(null, {
-  [registrationError]: (_, { payload }) => payload,
-  [loginError]: (_, { payload }) => payload,
-  [logoutError]: (_, { payload }) => payload,
+  [registrationError]: setError,
+  [loginError]: setError,
+  [logoutError]: setError,
+  [getCurrentUserError]: setError,
 });
 
 export default combineReducers({

@@ -35,21 +35,22 @@ const register = (credentials) => async (dispatch) => {
     token.set(response.data.token);
     dispatch(registrationSuccess(response.data));
   } catch (error) {
-    dispatch(registrationError(error));
+    dispatch(registrationError(error.message));
   }
 };
 
-// POST ​/users​/login
+// POST  ​/users​/login
 // Залогинить пользователя
 const login = (credentials) => async (dispatch) => {
   dispatch(loginRequest());
 
   try {
     const response = await axios.post("/users/login", credentials);
+
     token.set(response.data.token);
     dispatch(loginSuccess(response.data));
   } catch (error) {
-    dispatch(loginError(error));
+    dispatch(loginError(error.message));
   }
 };
 
@@ -64,10 +65,10 @@ const logout = () => async (dispatch) => {
     token.unset();
     dispatch(logoutSuccess());
   } catch (error) {
-    dispatch(logoutError(error));
+    dispatch(logoutError(error.message));
   }
 };
 
-const getCurrentUser = (credentials) => (dispatch) => {};
+const getCurrentUser = () => (dispatch) => {};
 
 export default { register, login, logout, getCurrentUser };

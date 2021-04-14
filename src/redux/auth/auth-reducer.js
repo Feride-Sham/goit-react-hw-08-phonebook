@@ -1,6 +1,19 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
-import authActions from "./auth-actions";
+import {
+  registrationRequest,
+  registrationSuccess,
+  registrationError,
+  loginRequest,
+  loginSuccess,
+  loginError,
+  logoutRequest,
+  logoutSuccess,
+  logoutError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
+} from "./auth-actions";
 
 const initialUserState = {
   name: null,

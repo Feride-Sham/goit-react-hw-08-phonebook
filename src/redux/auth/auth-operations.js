@@ -2,7 +2,7 @@ import axios from "axios";
 import {
   registrationRequest,
   registrationSuccess,
-  registrationSuccess,
+  registrationError,
   loginRequest,
   loginSuccess,
   loginError,
@@ -24,7 +24,17 @@ const token = {
   },
 };
 
-const register = (credentials) => (dispatch) => {};
+const register = (credentials) => async (dispatch) => {
+  dispatch(registrationRequest());
+
+  try {
+    const response = await axios.post("/users/signup", credentials);
+
+    dispatch(registrationSuccess(response.data));
+  } catch (error) {
+    dispatch(registrationError(error));
+  }
+};
 
 const login = (credentials) => (dispatch) => {};
 

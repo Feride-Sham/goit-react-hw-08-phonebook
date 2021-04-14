@@ -24,6 +24,8 @@ const token = {
   },
 };
 
+// POST  ​/users​/signup
+// Создать нового пользователя
 const register = (credentials) => async (dispatch) => {
   dispatch(registrationRequest());
 
@@ -36,7 +38,19 @@ const register = (credentials) => async (dispatch) => {
   }
 };
 
-const login = (credentials) => (dispatch) => {};
+// POST ​/users​/login
+// Залогинить пользователя
+const login = (credentials) => async (dispatch) => {
+  dispatch(loginRequest());
+
+  try {
+    const response = await axios.post("/users/login", credentials);
+    console.log(response);
+    dispatch(loginSuccess(response.data));
+  } catch (error) {
+    dispatch(loginError(error));
+  }
+};
 
 const logout = (credentials) => (dispatch) => {};
 

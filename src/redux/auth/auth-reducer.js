@@ -24,12 +24,15 @@ const initialUserState = {
 // user(объект:email,name) и token(строка)
 const user = createReducer(initialUserState, {
   [registrationSuccess]: (_, { payload }) => payload.user,
+  [loginSuccess]: (_, { payload }) => payload.user,
 });
 const token = createReducer(null, {
   [registrationSuccess]: (_, { payload }) => payload.token,
+  [loginSuccess]: (_, { payload }) => payload.token,
 });
 const error = createReducer(null, {
   [registrationError]: (_, { payload }) => payload,
+  [loginError]: (_, { payload }) => payload,
 });
 
 export default combineReducers({

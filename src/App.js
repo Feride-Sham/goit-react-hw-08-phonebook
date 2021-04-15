@@ -1,10 +1,11 @@
 import React, { Component, Suspense, lazy } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
 import { authOperations } from "./redux/auth";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { PublicRoute } from "./components/PublicRoute";
 
 import "./App.css";
 
@@ -35,14 +36,24 @@ class App extends Component {
           <AppBar />
           <Suspense fallback={<h1>Load..</h1>}>
             <Switch>
-              <Route exact path={routes.home} component={HomeView} />
+              <PublicRoute exact path={routes.home} component={HomeView} />
               <PrivateRoute
                 path={routes.contacts}
-                component={ContactsView}
                 redirectTo={routes.login}
+                component={ContactsView}
               />
-              <Route path={routes.login} component={LoginView} />
-              <Route path={routes.registration} component={RegistrationView} />
+              <PublicRoute
+                path={routes.login}
+                restricted
+                redirectTo={routes.contacts}
+                component={LoginView}
+              />
+              <PublicRoute
+                path={routes.registration}
+                restricted
+                redirectTo={routes.contacts}
+                component={RegistrationView}
+              />
             </Switch>
           </Suspense>
         </div>

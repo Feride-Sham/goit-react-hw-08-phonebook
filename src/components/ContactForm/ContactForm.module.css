@@ -1,6 +1,8 @@
 .container {
   display: flex;
-
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
   justify-content: space-between;
   padding: 10px;
   background-image: linear-gradient(

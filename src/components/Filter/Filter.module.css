@@ -1,4 +1,7 @@
 .container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
   padding: 10px;
   border-radius: 5px;
   background-image: linear-gradient(

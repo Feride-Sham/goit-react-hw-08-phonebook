@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { authSelectors, authOperations } from "../../redux/auth";
+import s from "./UserMenu.module.css";
 
 import myAvatar from "./avatar.png";
 
 const UserMenu = ({ avatar, name, onLogout }) => {
   return (
-    <div>
-      <img src={avatar} alt="" width="48" />
-      <span>Welcome, {name}</span>
+    <div className={s.userMenu}>
+      <img src={avatar} alt="" width="48" className={s.avatar} />
+      <span className={s.span}>Hi, {name}</span>
       <button type="button" onClick={onLogout}>
         Logout
       </button>

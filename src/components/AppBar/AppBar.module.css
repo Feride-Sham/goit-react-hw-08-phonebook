@@ -1,0 +1,12 @@
+.AppBar {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 7, 193, 0.1),
+    rgba(43, 41, 42, 0.3)
+  );
+}

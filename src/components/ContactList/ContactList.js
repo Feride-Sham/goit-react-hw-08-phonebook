@@ -18,7 +18,7 @@ class ContactList extends Component {
     return (
       <>
         {isLaodingContacts && <h1>Loading..</h1>}
-        <ul>
+        <ul className={s.list}>
           {contactList.map(({ id, name, number }) => (
             <li className={s.item} key={id}>
               <p>{name}: </p> <p>{number}</p>

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
 import { authOperations } from "./redux/auth";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 import "./App.css";
 
@@ -35,7 +36,11 @@ class App extends Component {
           <Suspense fallback={<h1>Load..</h1>}>
             <Switch>
               <Route exact path={routes.home} component={HomeView} />
-              <Route path={routes.contacts} component={ContactsView} />
+              <PrivateRoute
+                path={routes.contacts}
+                component={ContactsView}
+                redirectTo={routes.login}
+              />
               <Route path={routes.login} component={LoginView} />
               <Route path={routes.registration} component={RegistrationView} />
             </Switch>

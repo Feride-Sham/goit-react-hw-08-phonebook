@@ -8,13 +8,13 @@
 
 .App h1,
 h2 {
-  color: #6b046bf5;
+  color: #b178b3;
+  margin: 0px 0px 50px 0px;
 }
 
 .App input {
   cursor: pointer;
 
-  margin-left: 5px;
   padding: 5px;
   border-radius: 5px;
   outline-color: #8cb416;

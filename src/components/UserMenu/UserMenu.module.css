@@ -1,8 +1,6 @@
 .userMenu {
   display: flex;
   align-items: center;
-  color: gray;
-
   font-size: larger;
   font-weight: 800;
 }
@@ -14,5 +12,14 @@
 }
 
 .span {
+  color: white;
   margin-right: 10px;
+}
+
+.icon {
+  color: white;
+}
+
+.icon:hover {
+  color: #b178b3;
 }

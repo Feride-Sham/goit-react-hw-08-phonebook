@@ -7,9 +7,14 @@ import s from "./Filter.module.css";
 const Filter = ({ filterValue, onToFilter }) => {
   return (
     <form className={s.container}>
-      <label>
+      <label className={s.filter}>
         Find contacts by name{" "}
-        <input type="text" value={filterValue} onChange={onToFilter} />
+        <input
+          type="text"
+          value={filterValue}
+          onChange={onToFilter}
+          className={s.formInput}
+        />
       </label>
     </form>
   );

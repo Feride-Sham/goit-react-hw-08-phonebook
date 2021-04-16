@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import { authOperations } from "../../redux/auth";
-
+import s from "./Login.module.css";
 class Login extends Component {
   state = {
     email: "",
@@ -24,26 +23,35 @@ class Login extends Component {
     return (
       <div>
         <h1>Enter your login</h1>
-        <form onSubmit={this.handleSubmit} autoComplete="off">
-          <label>
-            Email
+        <form
+          onSubmit={this.handleSubmit}
+          autoComplete="off"
+          className={s.formBox}
+        >
+          <label className={s.formLabel}>
+            <span className={s.formSpan}>Email</span>
             <input
               type="email"
               name="email"
               value={email}
               onChange={this.handleChange}
+              className={s.formInput}
             />
           </label>
-          <label>
-            Password
+          <label className={s.formLabel}>
+            <span className={s.formSpan}>Password</span>
+
             <input
               type="password"
               name="password"
               value={password}
               onChange={this.handleChange}
+              className={s.formInput}
             />
           </label>
-          <button type="submit">Login</button>
+          <button type="submit" className={s.formBtn}>
+            Login
+          </button>
         </form>
       </div>
     );

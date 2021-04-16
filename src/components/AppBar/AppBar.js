@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import Navigation from "../Navigation/Navigation";
-import AuthNav from "../AuthNav/AuthNav";
-import UserMenu from "../UserMenu/UserMenu";
+import Navigation from "../Navigation";
+import AuthNav from "../AuthNav";
+import UserMenu from "../UserMenu";
 import { authSelectors } from "../../redux/auth";
 
 import s from "./AppBar.module.css";

@@ -1,13 +1,14 @@
 .App {
   background-color: white;
   font-family: "Courier New", Courier, monospace;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
+  font-family: "Rubik", sans-serif;
 }
 
 .App h1,
 h2 {
-  color: rgba(107, 4, 107, 0.959);
+  color: #6b046bf5;
 }
 
 .App input {
@@ -16,24 +17,25 @@ h2 {
   margin-left: 5px;
   padding: 5px;
   border-radius: 5px;
-  outline-color: rgb(231, 10, 231);
-  border-color: rgba(107, 4, 107);
+  outline-color: #8cb416;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .App button {
   padding: 5px;
   font-weight: 700;
-  color: white;
+  color: #787878;
   border: none;
   outline: none;
   border-radius: 5px;
-  background-color: rgba(107, 4, 107);
+  background-color: white;
   box-shadow: 2px 3px 5px #f3a3f0;
 }
 
 .App button:hover {
   cursor: pointer;
-  background-color: rgb(231, 10, 231);
+  color: white;
+  background-color: #b178b3;
   border: none;
   transform: scale(1.09);
 }

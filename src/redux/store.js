@@ -13,8 +13,6 @@ import {
 import { contactsReducer } from "./contacts";
 import { authReducer } from "./auth";
 import storage from "redux-persist/lib/storage";
-// import { combineReducers } from "redux";
-// import { composeWithDevTools } from "redux-devtools-extension";
 
 const middleware = [
   ...getDefaultMiddleware({

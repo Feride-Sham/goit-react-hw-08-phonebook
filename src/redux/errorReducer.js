@@ -20,6 +20,7 @@ const error = createReducer(null, {
   [loginError]: setError,
   [logoutError]: setError,
   [getCurrentUserError]: setError,
+
   [fetchContactsError]: setError,
   [addContactError]: setError,
   [deleteContactError]: setError,
